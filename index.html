@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>eco-zine-overview</title>
+  <title>Ökofeminismus Zine – Arbeitsprobe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
@@ -27,10 +27,10 @@
     /* CTA grid */
     .cta-grid{
       display:grid; gap:18px;
-      grid-template-columns: 1.2fr 1fr; /* text | small previews */
+      grid-template-columns: 1.2fr 1fr; /* text | preview */
       align-items:start;
     }
-    .thumbs{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    .thumbs{display:grid; grid-template-columns:1fr; gap:10px;} /* nur 1 Seite */
     .thumb iframe{
       width:100%; height:220px; border:1px solid var(--border); border-radius:8px;
       background:#fafafa;
@@ -39,6 +39,14 @@
     .thumb small{display:block; text-align:center; margin-top:6px; color:var(--muted);}
     a{color:inherit; text-underline-offset:3px;}
     a:hover{text-decoration:underline;}
+
+    /* Buttons */
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 0}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px;
+      border:1px solid var(--border); text-decoration:none; background:#fff
+    }
+    .btn:hover{background:#fafafa}
 
     /* big pdf viewer */
     .viewer{margin-top:24px;}
@@ -51,56 +59,56 @@
     /* responsive */
     @media (max-width:820px){
       .cta-grid{grid-template-columns:1fr;}
-      .thumbs{grid-template-columns:1fr 1fr;}
+      .thumbs{grid-template-columns:1fr;}
+      .viewer embed{height:65vh;}
     }
   </style>
 </head>
 <body>
   <main class="wrap">
     <header>
-      <h1>Ein kollaboratives Zine zum Ökofeminismus</h1>
-      <p class="muted">ein kleines, offenes projekt aus einem seminar zur kollaborativen wissensproduktion</p>
+      <h1>Ein Zine zum Ökofeminismus</h1>
+      <p class="muted">Ein kleines, buntes und offenes Projekt</p>
     </header>
 
     <section class="card">
       <p>
-        Das Zine entstand LOL LOL LOL UND NOCH MEHR LOL WARUM WIRD DAS NICHTS  weil wir etwas Kleines schaffen wollten, das <em>aus der Uni in die Welt</em> geht:
-        zugänglich, kollaborativ und mehrstimmig. Wir haben einen kurzen <strong>Call to Action</strong> gestartet, Beiträge gesammelt
-        und ein Zine mit theoretischen Mini-Texten und künstlerischen Einsendungen gestaltet.
+        Dieses Zine entstand im Rahmen eines Kurses zur kollaborativen und engagierten Wissensproduktion an der LMU. 
+        Wir wollten im Zuge dessen etwas Kleines schaffen, das <em>aus der Universität in die Welt</em> hinausgeht. – mit der Idee und Hoffnung, Wissen zum Thema Ökofeminismus 
+        zugänglich, mehrstimmig und kollaborativ zu gestalten.
+        
       </p>
     </section>
 
     <section>
       <h2>Was ist eigentlich ein Zine?</h2>
       <p class="card">
-        Ein Zine ist ein selbstgemachtes, unabhängiges Mini-Magazin. Es ist niedrigschwellig, lädt zur Beteiligung ein und lässt
-        Raum für alternative Stimmen &amp; Formate – irgendwo zwischen Wissenschaft, Kunst und Aktivismus.
+        Ein Zine (ausgesprochen ziːn, wie „seen“) ist ein meist selbstveröffentlichtes, unabhängig gestaltetes Heft in kleiner Auflage.
+        Es ist niedrigschwellig, lädt zur Beteiligung ein und lässt Raum für vielfältige Stimmen, Inhalte und Formate – zwischen Wissenschaft, Kunst und Aktivismus.
       </p>
     </section>
 
     <section>
-      <h2>Schickt uns eure Beiträge!</h2>
+      <h2>Unser Call</h2>
       <div class="cta-grid card">
         <div>
           <p>
-            Unser zweiseitiger Call erklärt kurz, wie und warum wir sammeln. Wenn du neugierig bist:
-            <a href="CallToAction.pdf" target="_blank" rel="noopener">Hier den vollständigen Call öffnen</a>.
+            In unserem einseitigen Call haben wir kurz umrissen, welche Beiträge wir sammeln wollten, und Schlagwörter als Inspiration mitgegeben. 
+            <a href="CallToAction.pdf" target="_blank" rel="noopener">Call to Action im neuen Tab öffnen</a>.
           </p>
-          <p class="muted">Kleiner Einblick rechts: Seite&nbsp;1 und Seite&nbsp;2 als Mini-Vorschau. Klick vergrößert.</p>
+          <p class="muted">Rechts: Mini-Vorschau der Seite (Klick vergrößert).</p>
+
+          <div class="btnrow">
+            <a class="btn" href="CallToAction.pdf" download>⬇️ Call herunterladen</a>
+          </div>
         </div>
 
-        <!-- Small side-by-side previews (page 1 & page 2), both clickable -->
+        <!-- Vorschau: eine Seite -->
         <div class="thumbs">
           <div class="thumb">
             <a href="CallToAction.pdf" target="_blank" rel="noopener" title="Call to Action – Seite 1 (groß öffnen)">
               <iframe src="CallToAction.pdf#page=1" title="Call to Action – Seite 1" loading="lazy"></iframe>
               <small>Seite&nbsp;1</small>
-            </a>
-          </div>
-          <div class="thumb">
-            <a href="CallToAction.pdf" target="_blank" rel="noopener" title="Call to Action – Seite 2 (groß öffnen)">
-              <iframe src="CallToAction.pdf#page=2" title="Call to Action – Seite 2" loading="lazy"></iframe>
-              <small>Seite&nbsp;2</small>
             </a>
           </div>
         </div>
@@ -110,16 +118,25 @@
     <section>
       <h2>Was euch im Zine erwartet</h2>
       <p class="card">
-        Kurze theoretische Impulse zu ökofeministischen Perspektiven, künstlerische Beiträge und persönliche Einsendungen.
-        Ein kollektives Experiment – klein, aber offen. Viel Spaß beim Lesen!
+        Kurze theoretische Impulse zu ökofeministischen Perspektiven, künstlerische Beiträge und persönliche Einsendungen –
+        ein kollektives Experiment, klein, aber offen. 
         <br><br>
-        <strong>Viel Spaß beim Lesen,</strong><br>Antonia :)
+        <strong>Viel Spaß beim Lesen!</strong>
       </p>
     </section>
 
     <section class="viewer">
       <h2>Zine 2023</h2>
+
+      <div class="btnrow">
+        <a class="btn" href="Zine2023.pdf" target="_blank" rel="noopener">Zine im neuen Tab öffnen</a>
+      </div>
+
       <embed src="Zine2023.pdf" type="application/pdf" />
+
+      <p class="muted" style="text-align:center; margin-top:8px">
+        Falls die Einbettung nicht lädt: <a href="Zine2023.pdf" target="_blank" rel="noopener">hier öffnen</a>.
+      </p>
     </section>
   </main>
 </body>
