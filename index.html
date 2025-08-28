@@ -10,105 +10,100 @@
       --fg:#111;
       --muted:#666;
       --border:#e6e6e6;
-      --maxw:860px;
-      --radius:10px;
+      --maxw:1080px;
     }
-    html,body{background:var(--bg); color:var(--fg); margin:0; padding:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
-    .wrap{max-width:var(--maxw); margin:56px auto; padding:0 20px;}
-    header{display:flex; justify-content:space-between; align-items:flex-start; gap:20px;}
-    header h1{font-size:clamp(1.6rem,2.2vw,2.2rem); margin:0 0 10px 0;}
-    header p{color:var(--muted); margin:0 0 28px 0;}
+    html,body{background:var(--bg); color:var(--fg); margin:0; padding:0; font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+    a{color:inherit}
+    .wrap{max-width:var(--maxw); margin:14px auto; padding:0 12px;}
 
-    /* Icon oben */
-    .mini-thumb{width:120px; border:1px solid var(--border); border-radius:8px; overflow:hidden; background:#fafafa;}
-    .mini-thumb iframe{width:100%; height:160px; border:0; display:block;}
-    .mini-thumb small{display:block; text-align:center; font-size:.8rem; padding:4px; color:var(--muted);}
+    /* HERO: Erklärung links (kompakt), PDF rechts (groß) */
+    .hero{
+      display:grid;
+      grid-template-columns: 0.95fr 1.2fr;
+      gap:16px;
+      align-items:start;
+      margin-bottom:14px;
+    }
+    .hero h1{font-size:clamp(1.25rem,2vw,1.7rem); margin:0 0 8px}
+    .hero h2{font-size:1.0rem; margin:10px 0 6px}
+    .hero p{margin:6px 0; letter-spacing:.01px}
 
-    h2{font-size:1.15rem; margin:30px 0 10px 0}
-    p{margin:10px 0;}
+    .viewer embed{
+      width:100%;
+      height:84vh;              /* groß genug, um direkt sichtbar zu sein */
+      border:1px solid var(--border);
+      border-radius:8px;
+      background:#fafafa;
+    }
+    .muted{color:var(--muted); font-size:.92rem}
 
-    .card{border:1px solid var(--border); border-radius:var(--radius); padding:18px; background:#fff;}
-    .muted{color:var(--muted);}
+    /* Sektionen darunter: minimal, enger Satz */
+    section{margin:14px 0}
+    section h2{font-size:1.0rem; margin:10px 0 6px}
+    section p{margin:6px 0}
+    .btnlike{text-decoration:underline}
 
-    .cta-grid{display:grid; gap:18px; grid-template-columns: 1.2fr 1fr; align-items:start;}
-    .thumbs{display:grid; grid-template-columns:1fr; gap:10px;}
-    .thumb iframe{width:100%; height:220px; border:1px solid var(--border); border-radius:8px; background:#fafafa;}
-    .thumb small{display:block; text-align:center; margin-top:6px; color:var(--muted);}
+    footer{margin:18px 0 24px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--border)}
+    .footgrid{display:flex; justify-content:space-between; gap:10px; padding-top:10px; flex-wrap:wrap}
 
-    .btnrow{margin:12px 0 0}
-    .btn{display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid var(--border); text-decoration:none; background:#fff;}
-    .btn:hover{background:#fafafa}
-
-    .viewer{margin-top:24px;}
-    .viewer embed{width:100%; height:680px; border:1px solid var(--border); border-radius:8px; background:#fafafa;}
-
-    footer{margin:48px auto 32px; padding:18px; border-top:1px solid var(--border); color:var(--muted); font-size:.85rem;}
-    .footgrid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+    /* Mobile: stapeln, Viewer etwas niedriger */
+    @media (max-width:900px){
+      .hero{grid-template-columns: 1fr; gap:10px}
+      .viewer embed{height:70vh}
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <header>
+
+    <!-- HERO: Erklärung links, Zine rechts -->
+    <section class="hero" id="oben">
       <div>
         <h1>Ein kleines Zine zum Ökofeminismus</h1>
-      </div>
-      <div class="mini-thumb">
-        <a href="#zine2023">
-          <iframe src="Zine2023.pdf#page=1&zoom=120" title="Zine 2023 – Seite 1" loading="lazy"></iframe>
-          <small>Vorschau</small>
-        </a>
-      </div>
-    </header>
 
-    <section>
-      <h2>Unser Call</h2>
-      <div class="cta-grid card">
-        <div>
-          <p class="card">
-            Ein Zine (ausgesprochen ziːn, wie „seen“) ist ein meist selbstveröffentlichtes, unabhängig gestaltetes Heft in kleiner Auflage.
-            Es ist nidrigschwellig, lädt zur Beteiligung ein und lässt Raum für vielfältige Stimmen, Inhalte und Formate – zwischen Wissenschaft, Kunst und Aktivismus.
-          </p>
-        </div>
+        <h2>Unser Call</h2>
+        <p>
+          Ein Zine (ausgesprochen ziːn, wie „seen“) ist ein meist selbstveröffentlichtes, unabhängig gestaltetes Heft in kleiner Auflage.
+          Es ist nidrigschwellig, lädt zur Beteiligung ein und lässt Raum für vielfältige Stimmen, Inhalte und Formate – zwischen Wissenschaft, Kunst und Aktivismus.
+        </p>
+
+        <h2>Dieses Zine...</h2>
+        <p>
+          entstand im Rahmen eines Kurses zur kollaborativen und engagierten Wissensproduktion an der LMU. 
+          Zu dritt wollten wir im Zuge dessen etwas Kleines schaffen, das <em>aus der Universität in die Welt</em> hinausgeht. – mit der Idee und Hoffnung, Wissen zum Thema Ökofeminismus 
+          zugänglich, mehrstimmig und kollaborativ zu gestalten.
+        </p>
+      </div>
+
+      <div class="viewer" id="zine2023">
+        <embed src="Zine2023.pdf" type="application/pdf" />
+        <p class="muted" style="text-align:center; margin-top:6px">
+          Falls die Einbettung nicht lädt: <a href="Zine2023.pdf" target="_blank" rel="noopener" class="btnlike">hier öffnen</a> · 
+          <a href="#unten" class="btnlike">zu den weiteren Infos</a>
+        </p>
       </div>
     </section>
 
-    <section class="card">
-      <h2>Dieses Zine...</h2>
+    <!-- Weitere Inhalte unten, weiterhin dein Wortlaut -->
+    <section id="unten">
+      <h2>Unser Call</h2>
       <p>
-        entstand im Rahmen eines Kurses zur kollaborativen und engagierten Wissensproduktion an der LMU. 
-        Zu dritt wollten wir im Zuge dessen etwas Kleines schaffen, das <em>aus der Universität in die Welt</em> hinausgeht. – mit der Idee und Hoffnung, Wissen zum Thema Ökofeminismus 
-        zugänglich, mehrstimmig und kollaborativ zu gestalten.
+        Den Call haben wir einfach verteilt und darin nach Beiträgen verschiedenster Art gefragt. 
+        Was uns dadurch zugetragen wurde haben wir dann zu einem Zine zusammengebastelt.
       </p>
+      <p><a class="btnlike" href="CallToAction.pdf" target="_blank" rel="noopener">Call als PDF</a></p>
+      <p class="muted">Rechts: Vorschau (Klick vergrößert).</p>
     </section>
 
+    <!-- Kleine Vorschau (optional) -->
     <section>
-      <h2>Unser Call</h2>
-      <div class="cta-grid card">
-        <div>
-          <p>
-            Den Call haben wir einfach verteilt und darin nach Beiträgen verschiedenster Art gefragt. 
-            Was uns dadurch zugetragen wurde haben wir dann zu einem Zine zusammengebastelt.
-          </p>
-          <div class="btnrow">
-            <a class="btn" href="CallToAction.pdf" target="_blank" rel="noopener">Call als PDF</a>
-          </div>
-          <p class="muted">Rechts: Vorschau (Klick vergrößert).</p>
-        </div>
-
-        <div class="thumbs">
-          <div class="thumb">
-            <a href="CallToAction.pdf" target="_blank" rel="noopener" title="Call to Action – Seite 1 (groß öffnen)">
-              <iframe src="CallToAction.pdf#page=1" title="Call to Action – Seite 1" loading="lazy"></iframe>
-              <small>Seite&nbsp;1</small>
-            </a>
-          </div>
-        </div>
-      </div>
+      <iframe src="CallToAction.pdf#page=1" title="Call to Action – Seite 1" loading="lazy" 
+              style="width:100%; max-width:460px; height:240px; border:1px solid var(--border); border-radius:8px; background:#fafafa; display:block"></iframe>
     </section>
 
     <section>
       <h2>Was euch im Zine erwartet</h2>
-      <p class="card">
+      <p>
         Kurze theoretische Impulse zu ökofeministischen Perspektiven, künstlerische Beiträge und persönliche Einsendungen und mehr.
         Nachdem es leider erstmal keine physischen Exemplare mehr gibt wollte ich hier eine kleine Gelegenheit schaffen noch digital reinschauen zu können. 
         <br><br>
@@ -116,24 +111,12 @@
       </p>
     </section>
 
-    <section class="viewer" id="zine2023">
-      <h2>Zine 2023</h2>
-      <div class="btnrow">
-        <a class="btn" href="Zine2023.pdf" target="_blank" rel="noopener">Zine im neuen Tab öffnen</a>
-      </div>
-
-      <embed src="Zine2023.pdf" type="application/pdf" />
-
-      <p class="muted" style="text-align:center; margin-top:8px">
-        Falls die Einbettung nicht lädt: <a href="Zine2023.pdf" target="_blank" rel="noopener">hier öffnen</a>.
-      </p>
-    </section>
   </main>
 
   <footer>
     <div class="wrap footgrid">
       <small>© 2023–2025 Projektgruppe „Ökofeminismus Zine“</small>
-      <small>Kontakt: <a href="mailto:antonia.kreutzer@gmx.de">antonia.kreutzer@gmx.de</a> · <a href="#">Nach oben</a></small>
+      <small>Kontakt: <a href="mailto:antonia.kreutzer@gmx.de">antonia.kreutzer@gmx.de</a> · <a href="#oben">Nach oben</a></small>
     </div>
   </footer>
 </body>
